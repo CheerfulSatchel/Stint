@@ -10,28 +10,28 @@ import UIKit
 
 class TasksTabBarController: UITabBarController {
 
-    let tasks = TasksWrapperViewController()
+  let tasks = TasksWrapperViewController()
 //    let tasks = TasksCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
-    let settings = UIViewController()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  let settings = UIViewController()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        setupTabBarItems()
-    }
+    // Do any additional setup after loading the view.
+    setupTabBarItems()
+  }
+  
+  func setupTabBarItems() {
+    let tasksItem = UITabBarItem()
+    tasksItem.image = UIImage(named: "TasksIcon")
+    tasks.tabBarItem = tasksItem
     
-    func setupTabBarItems() {
-        let tasksItem = UITabBarItem()
-        tasksItem.image = UIImage(named: "TasksIcon")
-        tasks.tabBarItem = tasksItem
-        
-        let anotherItem = UITabBarItem()
-        anotherItem.image = UIImage(named: "TasksIcon")
-        settings.tabBarItem = anotherItem
-        
-        self.viewControllers = [tasks, settings]
-        self.modalPresentationStyle = .fullScreen
-    }
+    let anotherItem = UITabBarItem()
+    anotherItem.image = UIImage(named: "TasksIcon")
+    settings.tabBarItem = anotherItem
+    
+    self.viewControllers = [tasks, settings]
+    self.modalPresentationStyle = .fullScreen
+  }
 
 }

@@ -9,13 +9,13 @@
 import UIKit
 
 class TasksCollectionViewHeader: UICollectionReusableView {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        self.backgroundColor = .red
-    }
+  override init(frame: CGRect) {
+    super.init(frame: frame)
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    self.backgroundColor = .red
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
 }

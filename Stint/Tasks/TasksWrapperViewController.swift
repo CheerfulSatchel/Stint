@@ -10,42 +10,43 @@ import UIKit
 
 class TasksWrapperViewController: UIViewController {
 
-    let tasksHeaderViewController = TasksHeaderViewController()
-    
-    override func viewDidLoad() {
-      super.viewDidLoad()
+  let tasksHeader = TasksHeaderViewController()
+  let tasksList = TasksCollectionViewController()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
-      // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
+    
+    self.view.backgroundColor = .green
+    self.addTasksHeaderView()
+  }
+  
+  func addTasksHeaderView() {
+    self.addChild(self.tasksHeader)
+    self.view.addSubview(self.tasksHeader.view)
+    self.tasksHeader.didMove(toParent: self)
+    applyTasksHeaderViewConstraints()
+  }
+
+  
+
+  
+  func applyTasksHeaderViewConstraints() {
+    self.tasksHeader.view.translatesAutoresizingMaskIntoConstraints = false
       
-      self.view.backgroundColor = .green
-      self.addTasksHeaderView()
-    }
+    self.tasksHeader.view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
     
-    func addTasksHeaderView() {
-        self.addChild(self.tasksHeaderViewController)
-        self.view.addSubview(self.tasksHeaderViewController.view)
-        self.tasksHeaderViewController.didMove(toParent: self)
-        applyTasksHeaderViewConstraints()
-        
-    }
+    // Ensure header stretches across the width of screen
+    self.tasksHeader.view.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
     
-    func applyTasksHeaderViewConstraints() {
-      self.tasksHeaderViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        
-      self.tasksHeaderViewController.view.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
-        
-      self.tasksHeaderViewController.view.widthAnchor.constraint(equalToConstant: 414).isActive = true
-        
-        
-      self.tasksHeaderViewController.view.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        
-//        self.tasksHeaderViewController.view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 100).isActive = true
-        
-    }
+    let headerHeightConstraint = self.view.frame.height/4
+    self.tasksHeader.view.heightAnchor.constraint(equalToConstant: headerHeightConstraint).isActive = true
+  }
+  
+  func addTasksCollectionView() {
     
-    func addTasksCollectionView() {
-        
-    }
+  }
   
 
 }
