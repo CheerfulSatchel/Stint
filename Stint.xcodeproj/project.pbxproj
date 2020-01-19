@@ -17,7 +17,6 @@
 		33F0377F23CB8F2700E534E2 /* StintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F0377E23CB8F2700E534E2 /* StintTests.swift */; };
 		33F0378A23CB8F2700E534E2 /* StintUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F0378923CB8F2700E534E2 /* StintUITests.swift */; };
 		33F0379923CB91F000E534E2 /* TasksCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F0379823CB91F000E534E2 /* TasksCollectionViewController.swift */; };
-		33F0379B23CBB53500E534E2 /* TasksCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F0379A23CBB53500E534E2 /* TasksCollectionViewHeader.swift */; };
 		33F037A123CBD6CE00E534E2 /* TasksTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F037A023CBD6CE00E534E2 /* TasksTabBarController.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +54,6 @@
 		33F0378923CB8F2700E534E2 /* StintUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StintUITests.swift; sourceTree = "<group>"; };
 		33F0378B23CB8F2700E534E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33F0379823CB91F000E534E2 /* TasksCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksCollectionViewController.swift; sourceTree = "<group>"; };
-		33F0379A23CBB53500E534E2 /* TasksCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksCollectionViewHeader.swift; sourceTree = "<group>"; };
 		33F037A023CBD6CE00E534E2 /* TasksTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,7 +164,6 @@
 		33F0379C23CBD64600E534E2 /* TasksCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				33F0379A23CBB53500E534E2 /* TasksCollectionViewHeader.swift */,
 				33F0379823CB91F000E534E2 /* TasksCollectionViewController.swift */,
 			);
 			path = TasksCollectionView;
@@ -317,7 +314,6 @@
 				33F0376A23CB8F2500E534E2 /* SceneDelegate.swift in Sources */,
 				33F037A123CBD6CE00E534E2 /* TasksTabBarController.swift in Sources */,
 				33D6061A23D1646C00DB6B93 /* TasksHeaderViewController.swift in Sources */,
-				33F0379B23CBB53500E534E2 /* TasksCollectionViewHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
