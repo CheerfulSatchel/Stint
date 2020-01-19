@@ -8,45 +8,69 @@
 
 import UIKit
 
-class TasksWrapperViewController: UIViewController {
+final class TasksWrapperViewController: UIViewController {
 
   let tasksHeader = TasksHeaderViewController()
-  let tasksList = TasksCollectionViewController()
+  let tasksList = TasksListViewController(collectionViewLayout: UICollectionViewFlowLayout())
   
   override func viewDidLoad() {
     super.viewDidLoad()
 
     // Do any additional setup after loading the view.
+    view.backgroundColor = .green
+    addTasksHeaderView()
+    addTasksListView()
     
-    self.view.backgroundColor = .green
-    self.addTasksHeaderView()
-  }
-  
-  func addTasksHeaderView() {
-    self.addChild(self.tasksHeader)
-    self.view.addSubview(self.tasksHeader.view)
-    self.tasksHeader.didMove(toParent: self)
     applyTasksHeaderViewConstraints()
+    applyTasksListViewConstraints()
   }
-
   
-
-  
-  func applyTasksHeaderViewConstraints() {
-    self.tasksHeader.view.translatesAutoresizingMaskIntoConstraints = false
-      
-    self.tasksHeader.view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+  private func addTasksHeaderView() {
+    addChild(tasksHeader)
+    view.addSubview(tasksHeader.view)
+    tasksHeader.didMove(toParent: self)
     
+  }
+  
+  private func addTasksListView() {
+    addChild(tasksList)
+    view.addSubview(tasksList.view)
+    tasksList.didMove(toParent: self)
+  }
+  
+  private func applyTasksHeaderViewConstraints() {
+    tasksHeader.view.translatesAutoresizingMaskIntoConstraints = false
+    
+    // Top & bottom anchors
+    tasksHeader.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+    tasksHeader.view.bottomAnchor.constraint(equalTo: tasksList.view.topAnchor).isActive = true
+    
+    // Left & right anchors
+    tasksHeader.view.leftAnchor.constraint(equalTo:
+      view.safeAreaLayoutGuide.leftAnchor).isActive = true
+    tasksHeader.view.leftAnchor.constraint(equalTo:
+      view.safeAreaLayoutGuide.leftAnchor).isActive = true
+
     // Ensure header stretches across the width of screen
-    self.tasksHeader.view.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-    
-    let headerHeightConstraint = self.view.frame.height/4
-    self.tasksHeader.view.heightAnchor.constraint(equalToConstant: headerHeightConstraint).isActive = true
+  tasksHeader.view.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
+  
+    // Ensure header occupies 1/4 of screen height
+    let headerHeightConstraint = view.frame.height/4
+    tasksHeader.view.heightAnchor.constraint(equalToConstant: headerHeightConstraint).isActive = true
   }
   
-  func addTasksCollectionView() {
+  private func applyTasksListViewConstraints() {
+    tasksList.view.translatesAutoresizingMaskIntoConstraints = false
     
+    // Top & bottom anchors
+    tasksList.view.topAnchor.constraint(equalTo: tasksHeader.view.bottomAnchor).isActive = true
+    tasksList.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    
+    // Left & right anchors
+    tasksList.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+    tasksList.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+    
+    tasksList.view.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
   }
-  
 
 }

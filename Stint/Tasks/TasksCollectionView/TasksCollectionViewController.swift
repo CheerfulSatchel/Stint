@@ -9,28 +9,22 @@
 import UIKit
 
 private let cellReuseIdentifier = "Cell"
-private let headerReuseIdentifier = "HeaderCell"
 
-class TasksCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class TasksListViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
     // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = false
+    // clearsSelectionOnViewWillAppear = false
 
     // Register cell classes
-    self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellReuseIdentifier)
+    collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellReuseIdentifier)
 
-    self.collectionView!.register(TasksCollectionViewHeader.self,
-                                  forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-                                  withReuseIdentifier: headerReuseIdentifier)
-    self.collectionView!.contentInsetAdjustmentBehavior = .never
     // Do any additional setup after loading the view.
-    self.collectionView.backgroundColor = .white
-    
-    let layout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
-    layout?.sectionHeadersPinToVisibleBounds = true
+    collectionView.backgroundColor = .white
+    view.backgroundColor = .magenta
+
   }
 
   // MARK: UICollectionViewDataSource
@@ -56,22 +50,13 @@ class TasksCollectionViewController: UICollectionViewController, UICollectionVie
   }
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return .init(width: self.view.frame.width, height: self.view.frame.width/4)
-  }
-  
-  override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-    let header = self.collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerReuseIdentifier, for: indexPath)
-    return header
-  }
-
-  func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        referenceSizeForHeaderInSection section: Int) -> CGSize {
-    return .init(width: self.view.frame.width, height: self.view.frame.height/3)
+    let itemWidth = view.frame.width * 0.95
+    let itemHeight = view.frame.height * 0.25
+    return .init(width: itemWidth, height: itemHeight)
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-    return UIEdgeInsets(top: 10.0, left: 1.0, bottom: 10.0, right: 1.0)
+    return UIEdgeInsets(top: 1.0, left: 1.0, bottom: 1.0, right: 1.0)
   }
     
     
