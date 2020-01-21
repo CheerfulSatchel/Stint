@@ -10,7 +10,7 @@ import UIKit
 
 class TasksTabBarController: UITabBarController {
 
-  let tasks = TasksWrapperViewController()
+  let tasksWrapper = TasksWrapperViewController()
   let settings = UIViewController()
   
   override func viewDidLoad() {
@@ -18,26 +18,26 @@ class TasksTabBarController: UITabBarController {
 
     // Do any additional setup after loading the view.
     setupTabBarItems()
-    loadSubviewsAboveTabBar()
+    loadCollectionViewAboveTabBar()
   }
   
   private func setupTabBarItems() {
     let tasksItem = UITabBarItem()
     tasksItem.image = UIImage(named: "TasksIcon")
-    tasks.tabBarItem = tasksItem
+    tasksWrapper.tabBarItem = tasksItem
     
     let settingsItem = UITabBarItem()
     settingsItem.image = UIImage(named: "TasksIcon")
     settings.tabBarItem = settingsItem
     
-    viewControllers = [tasks, settings]
+    viewControllers = [tasksWrapper, settings]
     modalPresentationStyle = .fullScreen
   }
   
-  private func loadSubviewsAboveTabBar() {
+  private func loadCollectionViewAboveTabBar() {
     //Credit: https://stackoverflow.com/a/19325718
     self.edgesForExtendedLayout = .all
-    tasks.tasksList.collectionView.contentInset =
+    tasksWrapper.tasksList.collectionView.contentInset =
       UIEdgeInsets(top: 0.0, left: 0.0, bottom: tabBar.frame.height, right: 0.0)
   }
 
