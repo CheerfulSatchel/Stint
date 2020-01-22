@@ -50,8 +50,8 @@ class TasksListViewController: UICollectionViewController, UICollectionViewDeleg
         cellReuseIdentifier, for: indexPath) as! TaskItemCollectionViewCell
     
     cell.task = tasks[indexPath.row]
-    cell.configureCell()
-    // Configure the cell
+    cell.addTaskToView()
+
     cell.backgroundColor = .black
     return cell
   }
