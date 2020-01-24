@@ -46,14 +46,14 @@ class TasksListViewController: UICollectionViewController, UICollectionViewDeleg
   }
 
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier:
+    let taskItem = collectionView.dequeueReusableCell(withReuseIdentifier:
         cellReuseIdentifier, for: indexPath) as! TaskItemCollectionViewCell
     
-    cell.task = tasks[indexPath.row]
-    cell.addTaskToView()
-
-    cell.backgroundColor = .black
-    return cell
+    taskItem.task = tasks[indexPath.row]
+    
+    taskItem.addTaskToView()
+    taskItem.backgroundColor = .black
+    return taskItem
   }
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
